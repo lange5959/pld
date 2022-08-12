@@ -1,15 +1,19 @@
 # -*- coding: utf-8 -*-
+# Time    : 2021/8/4 13:59
+# Author  : MengWei
 
 import json
 import pymongo
 
-host = '10.168.30.220'
+host = '0.0.8.0'
 port = 27017
+# user_name = 'root '
+# user_pwd = 'txjcCTFVTshG9RA'
 user_name = 'admin'
-user_pwd = '123456'
+user_pwd = '000'
 
 
-class SmMongo(object):
+class LcaMongo(object):
     def __init__(self, db_name, collection,
                  host=host, port=port,
                  user_name=user_name, user_pwd=user_pwd):
@@ -19,11 +23,13 @@ class SmMongo(object):
             db_name: 数据库名
             collection: 表名
         """
-        super(SmMongo, self).__init__()
+        super(LcaMongo, self).__init__()
 
-        self.client = pymongo.MongoClient(host=host, port=port)
+        self.client = pymongo.MongoClient(host=host, port=port,
+                                          username=user_name,
+                                          password=user_pwd)
         self.db = self.client.admin
-        self.db.authenticate(user_name, user_pwd)
+        # self.db.authenticate(user_name, user_pwd)
         self.db = self.client.get_database(db_name)
         self.collection = self.db.get_collection(collection)
 
@@ -31,7 +37,6 @@ class SmMongo(object):
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        print('close db')
         self.client.close()
 
     def get_one(self, data):
@@ -62,7 +67,7 @@ class SmMongo(object):
             result.append(i)
         return result
 
-    def insert(self, data):
+    def add(self, data):
         """
 
         Args:
@@ -86,8 +91,34 @@ class SmMongo(object):
         self.collection.update_one(data1, data3)
 
 
+def fn():
+    with LcaMongo('ppline_test', 'students') as mo:
+        # data = mo.get_one({'id': '20170105'})
+        mo.insert({'name': 'cat'})
+
+
+def fn2():
+    with LcaMongo('ppline_test', 'students') as mo:
+        # data = mo.get_one({'id': '20170105'})
+        result = mo.get_one({'name': 'cat'})
+        if result:
+            result['_id'] = str(result['_id'])
+
+        print(result)
+        return result
+        # print(result)
+
+
 if __name__ == '__main__':
-    with SmMongo('ppline_test', 'students') as mo:
-        data = mo.get_one({'id': '20170105'})
-        print data
-        # mo.delete(data)
+    pass
+    result = fn2()
+    print(type(result))
+    print(result)
+
+
+
+    # with LcaMongo('ppline_test', 'students') as mo:
+    # data = mo.get_one({'id': '20170105'})
+    # mo.insert({'name': 'cat'})
+    # print(data)
+    # mo.delete(data)
