@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu name="Playblast">
+    <submenu text="{camera}" color="white" position="TopLeft" size="40" icon="" />
+    <!--<submenu text="{time_code}" color="yellow" position="TopCenter" size="40" icon="" />-->
+    <submenu text="FocalLength\\: {focal_length}" color="yellow" position="TopRight" size="40" icon="" />
+    <submenu text="Frame\\: {frame}/{frame_num}" color="yellow" position="BottonRight" size="40" icon="" />
+    <submenu text="{time_code}" color="yellow" position="BottonLeft" size="40" icon="" />
+    <submenu text="User\\: {user}" color="yellow" position="BottonCenter" size="40" icon="" />
+</menu>

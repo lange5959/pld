@@ -1,0 +1,48 @@
+
+
+ViewportOptions:
+  "rendererName": "vp2Renderer"
+  "fogging": False
+  "fogMode": "linear"
+  "fogDensity": 1
+  "fogStart": 1
+  "fogEnd": 1
+  "fogColor": !!python/tuple [0, 0, 0, 0]
+  "shadows": True
+  "displayTextures": True
+  "displayLights": "default"
+  "useDefaultMaterial": False
+  "wireframeOnShaded": False
+  "displayAppearance": 'smoothShaded'
+  "selectionHiliteDisplay": False
+  "headsUpDisplay": True
+  # object display
+  "imagePlane": True
+  "nurbsCurves": False
+  "nurbsSurfaces": False
+  "polymeshes": True
+  "subdivSurfaces": False
+  "planes": True
+  "cameras": False
+  "controlVertices": True
+  "lights": False
+  "grid": False
+  "hulls": True
+  "joints": False
+  "ikHandles": False
+  "deformers": False
+  "dynamics": False
+  "fluids": False
+  "hairSystems": False
+  "follicles": False
+  "nCloths": False
+  "nParticles": False
+  "nRigids": False
+  "dynamicConstraints": False
+  "locators": False
+  "manipulators": False
+  "dimensions": False
+  "handles": False
+  "pivots": False
+  "textures": False
+  "strokes": False
